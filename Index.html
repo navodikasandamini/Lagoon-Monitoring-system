@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPulse - Lagoons and Wetlands Monitoring</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <button class="tab-button active" data-target="mapView"><i class="fas fa-map"></i> Map</button>
+    <button class="tab-button" data-target="monitoring"><i class="fas fa-chart-line"></i> Monitoring</button>
+    <button class="tab-button" data-target="hotspots"><i class="fas fa-fire"></i> Hotspots</button>
+    <button class="tab-button" data-target="comments"><i class="fas fa-comments"></i> Comments</button>
+  </nav>
+
+  <div class="tab-content active" id="mapView">
+    <div id="map"></div>
+  </div>
+
+  <div class="tab-content" id="monitoring">
+    <h2>Monitoring Dashboard</h2>
+    <p>Display time-series and satellite comparisons here.</p>
+  </div>
+
+  <div class="tab-content" id="hotspots">
+    <h2>Hotspots</h2>
+    <p>Highlight areas with extreme degradation or high sensitivity.</p>
+  </div>
+
+  <div class="tab-content" id="comments">
+    <h2>Reports & Comments</h2>
+    <input type="text" id="commentSearch" placeholder="Search reports..." />
+    <div id="reportList"></div>
+  </div>
+
+  <div id="reportPopup" class="popup hidden">
+    <h3>Submit a Report</h3>
+    <label>Location:</label>
+    <input type="text" id="reportLocation" readonly />
+    <label>Degradation Type:</label>
+    <select id="reportType">
+      <option value="Pollution">Pollution</option>
+      <option value="Illegal Activity">Illegal Activity</option>
+      <option value="Encroachment">Encroachment</option>
+    </select>
+    <label>Description:</label>
+    <textarea id="reportComment"></textarea>
+    <label>Photo URL (optional):</label>
+    <input type="url" id="reportPhoto" placeholder="http://..." />
+    <button id="submitReport">Submit</button>
+    <button id="cancelReport">Cancel</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
